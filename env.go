@@ -84,6 +84,10 @@ func (l *ldapEnv) loadNslcdConf() error {
 			if v[1] == "never" || v[1] == "allow" {
 				l.skip = true
 			}
+		case v[0] == "ssl":
+			if v[1] == "start_tls" {
+				l.tls = true
+			}
 		default:
 			if l.filter == "" {
 				l.filter = defaultFilter
